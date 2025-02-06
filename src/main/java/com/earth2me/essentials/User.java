@@ -200,17 +200,17 @@ public class User extends UserData implements Comparable<User>, IReplyTo, IUser
         if (this.isOp()) {
             try {
                 nickname.insert(0, this.ess.getSettings().getOperatorColor().toString());
-                nickname.append("§f");
+                nickname.append("ï¿½f");
             }
             catch (Exception ex) {}
         }
         if (this.ess.getSettings().addPrefixSuffix()) {
-            final String prefix = this.ess.getPermissionsHandler().getPrefix(this.base).replace('&', '§').replace("{WORLDNAME}", this.getWorld().getName());
-            final String suffix = this.ess.getPermissionsHandler().getSuffix(this.base).replace('&', '§').replace("{WORLDNAME}", this.getWorld().getName());
+            final String prefix = this.ess.getPermissionsHandler().getPrefix(this.base).replace('&', 'ï¿½').replace("{WORLDNAME}", this.getWorld().getName());
+            final String suffix = this.ess.getPermissionsHandler().getSuffix(this.base).replace('&', 'ï¿½').replace("{WORLDNAME}", this.getWorld().getName());
             nickname.insert(0, prefix);
             nickname.append(suffix);
-            if (suffix.length() < 2 || !suffix.substring(suffix.length() - 2, suffix.length() - 1).equals("§")) {
-                nickname.append("§f");
+            if (suffix.length() < 2 || !suffix.substring(suffix.length() - 2, suffix.length() - 1).equals("ï¿½")) {
+                nickname.append("ï¿½f");
             }
         }
         return nickname.toString();
@@ -323,8 +323,8 @@ public class User extends UserData implements Comparable<User>, IReplyTo, IUser
     public void updateActivity(final boolean broadcast) {
         if (this.isAfk()) {
             this.setAfk(false);
-            if (broadcast && !this.isHidden()) {
-                this.ess.broadcastMessage(this, ChatColor.translateAlternateColorCodes('&', Util.format("userIsNotAway", this.getDisplayName())));
+            if (broadcast && !this.isHidden() && this.isAFKDetectionOn()) {
+                this.ess.broadcastMessage(this, Util.format("userIsNotAway", ChatColor.translateAlternateColorCodes('&', this.getDisplayName() + "&f")));
             }
         }
         this.lastActivity = System.currentTimeMillis();
@@ -345,8 +345,8 @@ public class User extends UserData implements Comparable<User>, IReplyTo, IUser
         final long autoafk = this.ess.getSettings().getAutoAfk();
         if (!this.isAfk() && autoafk > 0L && this.lastActivity + autoafk * 1000L < System.currentTimeMillis()) {
             this.setAfk(true);
-            if (!this.isHidden()) {
-                this.ess.broadcastMessage(this, ChatColor.translateAlternateColorCodes('&', Util.format("userIsAway", this.getDisplayName())));
+            if (!this.isHidden() && this.isAFKDetectionOn()) {
+                this.ess.broadcastMessage(this, Util.format("userIsAway", ChatColor.translateAlternateColorCodes('&', this.getDisplayName() + "&f")));
             }
         }
     }

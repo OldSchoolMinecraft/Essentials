@@ -201,7 +201,7 @@ public class EssentialsPlayerListener extends PlayerListener
         if (!this.ess.getSettings().isCommandDisabled("motd") && user.isAuthorized("essentials.motd")) {
             for (final String m : this.ess.getMotd((CommandSender)user, null)) {
                 if (m != null) {
-                    user.sendMessage(m);
+                    user.sendMessage(ChatColor.translateAlternateColorCodes('&', m));
                 }
             }
         }

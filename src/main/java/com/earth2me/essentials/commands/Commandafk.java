@@ -24,12 +24,12 @@ public class Commandafk extends EssentialsCommand
     private final void toggleAfk(final User user) {
         if (!user.toggleAfk()) {
             if (!user.isHidden()) {
-                this.ess.broadcastMessage(user, ChatColor.translateAlternateColorCodes('&', Util.format("userIsNotAway", user.getDisplayName())));
+                this.ess.broadcastMessage(user, Util.format("userIsNotAway", ChatColor.translateAlternateColorCodes('&', user.getDisplayName() + "&f")));
             }
             user.updateActivity(false);
         }
         else if (!user.isHidden()) {
-            this.ess.broadcastMessage(user, ChatColor.translateAlternateColorCodes('&', Util.format("userIsAway", user.getDisplayName())));
+            this.ess.broadcastMessage(user, Util.format("userIsAway", ChatColor.translateAlternateColorCodes('&', user.getDisplayName() + "&f")));
         }
     }
 }

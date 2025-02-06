@@ -35,6 +35,7 @@ public abstract class UserData extends PlayerExtension implements IConf
     private String geolocation;
     private boolean isSocialSpyEnabled;
     private boolean isNPC;
+    private boolean afkDetectionOn;
     
     protected UserData(final Player base, final IEssentials ess) {
         super(base, ess);
@@ -73,8 +74,26 @@ public abstract class UserData extends PlayerExtension implements IConf
         this.geolocation = this._getGeoLocation();
         this.isSocialSpyEnabled = this._isSocialSpyEnabled();
         this.isNPC = this._isNPC();
+        this.afkDetectionOn = this._isAFKDetectionOn();
     }
-    
+
+    private boolean _isAFKDetectionOn()
+    {
+        return this.config.getBoolean("afkDetectionOn", true);
+    }
+
+    public boolean isAFKDetectionOn()
+    {
+        return this.afkDetectionOn;
+    }
+
+    public void setAfkDetectionOn(boolean set)
+    {
+        this.afkDetectionOn = set;
+        this.config.setProperty("afkDetectionOn", (Object)set);
+        this.config.save();
+    }
+
     private double _getMoney() {
         double money = this.ess.getSettings().getStartingBalance();
         if (this.config.hasProperty("money")) {

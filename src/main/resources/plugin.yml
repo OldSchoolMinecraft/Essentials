@@ -11,6 +11,10 @@ commands:
     description: Marks you as away-from-keyboard.
     usage: /<command>
     aliases: [eafk]
+  toggleafk:
+    description: Toggles AFK detection.
+    usage: /<command>
+    aliases: [etoggleafk, tafk, etafk]
   antioch:
     description: 'A little surprise for operators.'
     usage: /<command>

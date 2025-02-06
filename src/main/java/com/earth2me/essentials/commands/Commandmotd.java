@@ -12,7 +12,7 @@ public class Commandmotd extends EssentialsCommand
     
     public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
         for (final String m : this.ess.getMotd(sender, Util.i18n("noMotd"))) {
-            sender.sendMessage(m);
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', m));
         }
     }
 }
