@@ -324,7 +324,7 @@ public class User extends UserData implements Comparable<User>, IReplyTo, IUser
         if (this.isAfk()) {
             this.setAfk(false);
             if (broadcast && !this.isHidden()) {
-                this.ess.broadcastMessage(this, Util.format("userIsNotAway", this.getDisplayName()));
+                this.ess.broadcastMessage(this, ChatColor.translateAlternateColorCodes('&', Util.format("userIsNotAway", this.getDisplayName())));
             }
         }
         this.lastActivity = System.currentTimeMillis();
@@ -346,7 +346,7 @@ public class User extends UserData implements Comparable<User>, IReplyTo, IUser
         if (!this.isAfk() && autoafk > 0L && this.lastActivity + autoafk * 1000L < System.currentTimeMillis()) {
             this.setAfk(true);
             if (!this.isHidden()) {
-                this.ess.broadcastMessage(this, Util.format("userIsAway", this.getDisplayName()));
+                this.ess.broadcastMessage(this, ChatColor.translateAlternateColorCodes('&', Util.format("userIsAway", this.getDisplayName())));
             }
         }
     }
