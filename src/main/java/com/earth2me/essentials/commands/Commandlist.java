@@ -66,13 +66,12 @@ public class Commandlist extends EssentialsCommand
                         first = false;
                     }
                     if (user.isAfk()) {
-                        groupString.append("§7[AFK]§f");
+                        groupString.append(ChatColor.translateAlternateColorCodes('&', "&7[AFK]&f"));
                     }
                     if (user.isHidden()) {
-                        groupString.append("§7[HIDDEN]§f");
+                        groupString.append(ChatColor.translateAlternateColorCodes('&', "&7[HIDDEN]&f"));
                     }
-                    groupString.append(user.getDisplayName());
-                    groupString.append("§f");
+                    groupString.append(ChatColor.translateAlternateColorCodes('&', user.getDisplayName()));
                 }
                 sender.sendMessage(groupString.toString());
             }
@@ -97,13 +96,12 @@ public class Commandlist extends EssentialsCommand
                     first2 = false;
                 }
                 if (user2.isAfk()) {
-                    onlineUsers.append("§7[AFK]§f");
+                    onlineUsers.append(ChatColor.translateAlternateColorCodes('&', "&7[AFK]&f"));
                 }
                 if (user2.isHidden()) {
-                    onlineUsers.append("§7[HIDDEN]§f");
+                    onlineUsers.append(ChatColor.translateAlternateColorCodes('&', "&7[HIDDEN]&f"));
                 }
-                onlineUsers.append(user2.getDisplayName());
-                onlineUsers.append("§f");
+                onlineUsers.append(ChatColor.translateAlternateColorCodes('&', user2.getDisplayName()));
             }
             sender.sendMessage(onlineUsers.toString());
         }

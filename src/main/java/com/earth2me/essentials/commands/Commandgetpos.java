@@ -11,10 +11,10 @@ public class Commandgetpos extends EssentialsCommand
     
     public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
         final Location coords = user.getLocation();
-        user.sendMessage("ง7X: " + coords.getBlockX() + " (-North <-> +South)");
-        user.sendMessage("ง7Y: " + coords.getBlockY() + " (+Up <-> -Down)");
-        user.sendMessage("ง7Z: " + coords.getBlockZ() + " (+East <-> -West)");
-        user.sendMessage("ง7Yaw: " + user.getCorrectedYaw() + " (Rotation)");
-        user.sendMessage("ง7Pitch: " + coords.getPitch() + " (Head angle)");
+        user.sendMessage("ยง7X: " + coords.getBlockX() + " (-North <-> +South)");
+        user.sendMessage("ยง7Y: " + coords.getBlockY() + " (+Up <-> -Down)");
+        user.sendMessage("ยง7Z: " + coords.getBlockZ() + " (+East <-> -West)");
+        user.sendMessage("ยง7Yaw: " + user.getCorrectedYaw() + " (Rotation)");
+        user.sendMessage("ยง7Pitch: " + coords.getPitch() + " (Head angle)");
     }
 }

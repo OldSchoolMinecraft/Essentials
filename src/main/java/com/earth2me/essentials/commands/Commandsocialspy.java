@@ -10,6 +10,6 @@ public class Commandsocialspy extends EssentialsCommand
     }
     
     public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
-        user.sendMessage("ง7SocialSpy " + (user.toggleSocialSpy() ? Util.i18n("enabled") : Util.i18n("disabled")));
+        user.sendMessage("ยง7SocialSpy " + (user.toggleSocialSpy() ? Util.i18n("enabled") : Util.i18n("disabled")));
     }
 }

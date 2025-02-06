@@ -48,7 +48,7 @@ public class Commandtogglejail extends EssentialsCommand
             return;
         }
         if (args.length >= 2 && p.isJailed() && !args[1].equalsIgnoreCase(p.getJail())) {
-            sender.sendMessage("§cPerson is already in jail " + p.getJail());
+            sender.sendMessage("Â§cPerson is already in jail " + p.getJail());
             return;
         }
         if (args.length >= 2 && p.isJailed() && args[1].equalsIgnoreCase(p.getJail())) {
@@ -64,12 +64,12 @@ public class Commandtogglejail extends EssentialsCommand
             }
             p.setJailed(false);
             p.setJailTimeout(0L);
-            p.sendMessage("§7You have been released");
+            p.sendMessage("Â§7You have been released");
             p.setJail(null);
             if (!(p.getBase() instanceof OfflinePlayer)) {
                 p.getTeleport().back();
             }
-            sender.sendMessage("§7Player " + p.getName() + " unjailed.");
+            sender.sendMessage("Â§7Player " + p.getName() + " unjailed.");
         }
     }
 }

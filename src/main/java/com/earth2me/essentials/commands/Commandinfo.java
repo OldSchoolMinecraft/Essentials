@@ -41,9 +41,9 @@ public class Commandinfo extends EssentialsCommand
                 final String line = bufferedReader.readLine();
                 if (line.length() > 0 && line.charAt(0) == '#') {
                     bookmarks.put(line.substring(1).toLowerCase().replaceAll("&[0-9a-f]", ""), lineNumber);
-                    chapters.add(line.substring(1).replace('&', 'ง'));
+                    chapters.add(line.substring(1).replace('&', 'ยง'));
                 }
-                lines.add(line.replace('&', 'ง'));
+                lines.add(line.replace('&', 'ยง'));
                 ++lineNumber;
             }
         }

@@ -60,7 +60,7 @@ public class SignBlockListener extends BlockListener
         final User user = this.ess.getUser(event.getPlayer());
         if (user.isAuthorized("essentials.signs.color")) {
             for (int i = 0; i < 4; ++i) {
-                event.setLine(i, event.getLine(i).replaceAll("&([0-9a-f])", "ง$1"));
+                event.setLine(i, event.getLine(i).replaceAll("&([0-9a-f])", "ยง$1"));
             }
         }
         for (final Signs signs : Signs.values()) {

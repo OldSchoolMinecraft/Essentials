@@ -16,9 +16,9 @@ public class EssentialsSign
 {
     private static final Set<Material> EMPTY_SET;
     protected final transient String signName;
-    private static final String FORMAT_SUCCESS = "�1[%s]";
+    private static final String FORMAT_SUCCESS = "§1[%s]";
     private static final String FORMAT_TEMPLATE = "[%s]";
-    private static final String FORMAT_FAIL = "�4[%s]";
+    private static final String FORMAT_FAIL = "§4[%s]";
     
     public EssentialsSign(final String signName) {
         this.signName = signName;
@@ -30,7 +30,7 @@ public class EssentialsSign
         if (!user.isAuthorized("essentials.signs." + this.signName.toLowerCase() + ".create") && !user.isAuthorized("essentials.signs.create." + this.signName.toLowerCase())) {
             return true;
         }
-        sign.setLine(0, String.format("�4[%s]", this.signName));
+        sign.setLine(0, String.format("§4[%s]", this.signName));
         try {
             final boolean ret = this.onSignCreate(sign, user, this.getUsername(user), ess);
             if (ret) {
@@ -48,7 +48,7 @@ public class EssentialsSign
     }
     
     public String getSuccessName() {
-        return String.format("�1[%s]", this.signName);
+        return String.format("§1[%s]", this.signName);
     }
     
     public String getTemplateName() {
@@ -174,7 +174,7 @@ public class EssentialsSign
     }
     
     public static boolean isValidSign(final ISign sign) {
-        return sign.getLine(0).matches("�1\\[.*\\]");
+        return sign.getLine(0).matches("§1\\[.*\\]");
     }
     
     protected boolean onBlockPlace(final Block block, final User player, final String username, final IEssentials ess) throws SignException, ChargeException {

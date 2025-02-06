@@ -71,7 +71,7 @@ public class Commandhelp extends EssentialsCommand
             try {
                 while (bufferedReader.ready()) {
                     final String line = bufferedReader.readLine();
-                    retval.add(line.replace('&', 'ง'));
+                    retval.add(line.replace('&', 'ยง'));
                 }
             }
             finally {
@@ -96,7 +96,7 @@ public class Commandhelp extends EssentialsCommand
                             if (this.ess.getSettings().isCommandDisabled(k.getKey()) || !user.isAuthorized(node)) {
                                 continue;
                             }
-                            retval.add("งc" + k.getKey() + "ง7: " + k.getValue().get("description"));
+                            retval.add("ยงc" + k.getKey() + "ยง7: " + k.getValue().get("description"));
                         }
                         else {
                             if (!this.ess.getSettings().showNonEssCommandsInHelp()) {
@@ -107,7 +107,7 @@ public class Commandhelp extends EssentialsCommand
                                 if (!user.isAuthorized((String)value.get("permission"))) {
                                     continue;
                                 }
-                                retval.add("งc" + k.getKey() + "ง7: " + value.get("description"));
+                                retval.add("ยงc" + k.getKey() + "ยง7: " + value.get("description"));
                             }
                             else if (value.containsKey("permission") && value.get("permission") instanceof List && !((String)value.get("permission")).isEmpty()) {
                                 boolean enabled = false;
@@ -120,13 +120,13 @@ public class Commandhelp extends EssentialsCommand
                                 if (!enabled) {
                                     continue;
                                 }
-                                retval.add("งc" + k.getKey() + "ง7: " + value.get("description"));
+                                retval.add("ยงc" + k.getKey() + "ยง7: " + value.get("description"));
                             }
                             else if (value.containsKey("permissions") && value.get("permissions") instanceof String && !value.get("permissions").equals("")) {
                                 if (!user.isAuthorized((String)value.get("permissions"))) {
                                     continue;
                                 }
-                                retval.add("งc" + k.getKey() + "ง7: " + value.get("description"));
+                                retval.add("ยงc" + k.getKey() + "ยง7: " + value.get("description"));
                             }
                             else if (value.containsKey("permissions") && value.get("permissions") instanceof List && !((List)value.get("permissions")).isEmpty()) {
                                 boolean enabled = false;
@@ -139,16 +139,16 @@ public class Commandhelp extends EssentialsCommand
                                 if (!enabled) {
                                     continue;
                                 }
-                                retval.add("งc" + k.getKey() + "ง7: " + value.get("description"));
+                                retval.add("ยงc" + k.getKey() + "ยง7: " + value.get("description"));
                             }
                             else if (user.isAuthorized("essentials.help." + pluginName)) {
-                                retval.add("งc" + k.getKey() + "ง7: " + value.get("description"));
+                                retval.add("ยงc" + k.getKey() + "ยง7: " + value.get("description"));
                             }
                             else {
                                 if (this.ess.getSettings().hidePermissionlessHelp()) {
                                     continue;
                                 }
-                                retval.add("งc" + k.getKey() + "ง7: " + value.get("description"));
+                                retval.add("ยงc" + k.getKey() + "ยง7: " + value.get("description"));
                             }
                         }
                     }

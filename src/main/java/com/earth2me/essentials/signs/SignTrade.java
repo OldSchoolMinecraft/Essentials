@@ -15,7 +15,7 @@ public class SignTrade extends EssentialsSign
         this.validateTrade(sign, 2, true, ess);
         final Trade charge = this.getTrade(sign, 2, true, true, ess);
         charge.isAffordableFor(player);
-        sign.setLine(3, "ง8" + username);
+        sign.setLine(3, "ยง8" + username);
         charge.charge(player);
         Trade.log("Sign", "Trade", "Create", username, charge, username, null, sign.getBlock().getLocation(), ess);
         return true;

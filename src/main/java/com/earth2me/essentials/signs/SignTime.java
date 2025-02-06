@@ -13,11 +13,11 @@ public class SignTime extends EssentialsSign
         this.validateTrade(sign, 2, ess);
         final String timeString = sign.getLine(1);
         if ("Day".equalsIgnoreCase(timeString)) {
-            sign.setLine(1, "ง2Day");
+            sign.setLine(1, "ยง2Day");
             return true;
         }
         if ("Night".equalsIgnoreCase(timeString)) {
-            sign.setLine(1, "ง2Night");
+            sign.setLine(1, "ยง2Night");
             return true;
         }
         throw new SignException(Util.i18n("onlyDayNight"));
@@ -30,12 +30,12 @@ public class SignTime extends EssentialsSign
         final String timeString = sign.getLine(1);
         long time = player.getWorld().getTime();
         time -= time % 24000L;
-        if ("ง2Day".equalsIgnoreCase(timeString)) {
+        if ("ยง2Day".equalsIgnoreCase(timeString)) {
             player.getWorld().setTime(time + 24000L);
             charge.charge(player);
             return true;
         }
-        if ("ง2Night".equalsIgnoreCase(timeString)) {
+        if ("ยง2Night".equalsIgnoreCase(timeString)) {
             player.getWorld().setTime(time + 37700L);
             charge.charge(player);
             return true;

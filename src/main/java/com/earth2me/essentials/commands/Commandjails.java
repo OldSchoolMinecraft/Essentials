@@ -12,6 +12,6 @@ public class Commandjails extends EssentialsCommand
     
     @Override
     protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
-        sender.sendMessage("ง7" + Util.joinList(" ", this.ess.getJail().getJails()));
+        sender.sendMessage("ยง7" + Util.joinList(" ", this.ess.getJail().getJails()));
     }
 }

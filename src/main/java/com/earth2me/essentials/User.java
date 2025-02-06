@@ -200,17 +200,17 @@ public class User extends UserData implements Comparable<User>, IReplyTo, IUser
         if (this.isOp()) {
             try {
                 nickname.insert(0, this.ess.getSettings().getOperatorColor().toString());
-                nickname.append("�f");
+                nickname.append("§f");
             }
             catch (Exception ex) {}
         }
         if (this.ess.getSettings().addPrefixSuffix()) {
-            final String prefix = this.ess.getPermissionsHandler().getPrefix(this.base).replace('&', '�').replace("{WORLDNAME}", this.getWorld().getName());
-            final String suffix = this.ess.getPermissionsHandler().getSuffix(this.base).replace('&', '�').replace("{WORLDNAME}", this.getWorld().getName());
+            final String prefix = this.ess.getPermissionsHandler().getPrefix(this.base).replace('&', '§').replace("{WORLDNAME}", this.getWorld().getName());
+            final String suffix = this.ess.getPermissionsHandler().getSuffix(this.base).replace('&', '§').replace("{WORLDNAME}", this.getWorld().getName());
             nickname.insert(0, prefix);
             nickname.append(suffix);
-            if (suffix.length() < 2 || !suffix.substring(suffix.length() - 2, suffix.length() - 1).equals("�")) {
-                nickname.append("�f");
+            if (suffix.length() < 2 || !suffix.substring(suffix.length() - 2, suffix.length() - 1).equals("§")) {
+                nickname.append("§f");
             }
         }
         return nickname.toString();
