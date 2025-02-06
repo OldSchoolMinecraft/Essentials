@@ -215,7 +215,7 @@ public class Essentials extends JavaPlugin implements IEssentials
         for (int i = 0; i < lines.size(); ++i) {
             String m = lines.get(i);
             if (m != null) {
-                m = m.replace('&', '§').replace("§§", "&");
+                m = m.replace('&', '\u00A7');
                 if (sender instanceof User || sender instanceof Player) {
                     final User user = this.getUser((Object)sender);
                     m = m.replace("{PLAYER}", user.getDisplayName());
