@@ -8,12 +8,19 @@ public class Commandsethome extends EssentialsCommand
     public Commandsethome() {
         super("sethome");
     }
+
+    private boolean isValidHomeName(String name) {
+        return name.matches("^[a-zA-Z0-9]+$");
+    }
     
     public void run(final Server server, final User user, final String commandLabel, String[] args) throws Exception {
         if (args.length > 0) {
             final String[] nameParts = args[0].split(":");
             if (nameParts[0].length() != args[0].length()) {
                 args = nameParts;
+            }
+            if (!this.isValidHomeName(args[0])) {
+                throw new Exception("Invalid home name. Home names must be alphanumeric.");
             }
             if (args.length < 2) {
                 if (!user.isAuthorized("essentials.sethome.multiple")) {
