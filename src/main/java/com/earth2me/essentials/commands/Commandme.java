@@ -18,7 +18,7 @@ public class Commandme extends EssentialsCommand
         }
         final StringBuilder message = new StringBuilder();
         message.append("* ");
-        message.append(user.getDisplayName());
+        message.append(ChatColor.translateAlternateColorCodes('&', user.getDisplayName()));
         message.append(' ');
         for (int i = 0; i < args.length; ++i) {
             message.append(args[i]);
