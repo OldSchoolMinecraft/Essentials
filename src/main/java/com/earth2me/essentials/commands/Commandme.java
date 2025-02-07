@@ -18,10 +18,10 @@ public class Commandme extends EssentialsCommand
         }
         final StringBuilder message = new StringBuilder();
         message.append("* ");
-        message.append(ChatColor.translateAlternateColorCodes('&', user.getDisplayName()));
+        message.append(ChatColor.translateAlternateColorCodes('&', user.getDisplayName() + "&f"));
         message.append(' ');
         for (int i = 0; i < args.length; ++i) {
-            message.append(args[i]);
+            message.append(ChatColor.translateAlternateColorCodes('&', args[i]));
             message.append(' ');
         }
         this.ess.broadcastMessage(user, message.toString());
