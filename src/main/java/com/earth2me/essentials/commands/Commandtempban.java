@@ -1,7 +1,7 @@
 package com.earth2me.essentials.commands;
 
+import com.earth2me.essentials.OfflinePlayer;
 import org.bukkit.*;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
 import com.earth2me.essentials.*;

@@ -1,8 +1,8 @@
 package com.earth2me.essentials.commands;
 
+import com.earth2me.essentials.OfflinePlayer;
 import org.bukkit.*;
 import com.earth2me.essentials.*;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.*;
 
 public class Commandtpo extends EssentialsCommand

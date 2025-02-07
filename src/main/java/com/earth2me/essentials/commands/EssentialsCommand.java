@@ -1,8 +1,9 @@
 package com.earth2me.essentials.commands;
 
 import java.util.logging.*;
+
+import com.earth2me.essentials.OfflinePlayer;
 import org.bukkit.*;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.*;
 import java.util.*;
 import com.earth2me.essentials.*;
@@ -38,7 +39,7 @@ public abstract class EssentialsCommand implements IEssentialsCommand
         }
         final User user = this.ess.getUser(args[pos]);
         if (user == null) {
-            final List<Player> matches = (List<Player>)server.matchPlayer(args[pos]);
+            final List<Player> matches = server.matchPlayer(args[pos]);
             if (!matches.isEmpty()) {
                 for (final Player player : matches) {
                     final User userMatch = this.ess.getUser(player);
