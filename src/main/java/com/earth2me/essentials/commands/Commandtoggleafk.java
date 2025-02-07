@@ -6,7 +6,7 @@ import org.bukkit.Server;
 
 public class Commandtoggleafk extends EssentialsCommand
 {
-    protected Commandtoggleafk()
+    public Commandtoggleafk()
     {
         super("toggleafk");
     }
