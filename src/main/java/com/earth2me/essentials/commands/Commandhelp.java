@@ -23,7 +23,7 @@ public class Commandhelp extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
         int page = 1;
         String match = "";
         try {
@@ -53,7 +53,7 @@ public class Commandhelp extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
         sender.sendMessage(Util.i18n("helpConsole"));
     }
     

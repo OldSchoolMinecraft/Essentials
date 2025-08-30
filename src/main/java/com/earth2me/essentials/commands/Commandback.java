@@ -10,7 +10,7 @@ public class Commandback extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
         final Trade charge = new Trade(this.getName(), this.ess);
         charge.isAffordableFor(user);
         user.sendMessage(Util.i18n("backUsageMsg"));

@@ -12,7 +12,7 @@ public class Commandgc extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
         sender.sendMessage(Util.format("gcmax", Runtime.getRuntime().maxMemory() / 1024L / 1024L));
         sender.sendMessage(Util.format("gcfree", Runtime.getRuntime().freeMemory() / 1024L / 1024L));
         sender.sendMessage(Util.format("gctotal", Runtime.getRuntime().totalMemory() / 1024L / 1024L));

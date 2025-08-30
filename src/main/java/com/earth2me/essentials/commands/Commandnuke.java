@@ -12,7 +12,7 @@ public class Commandnuke extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws NoSuchFieldException, NotEnoughArgumentsException {
+    public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws NoSuchFieldException, NotEnoughArgumentsException {
         List<Player> targets;
         if (args.length > 0) {
             targets = new ArrayList<Player>();

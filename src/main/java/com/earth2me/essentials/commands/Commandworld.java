@@ -11,7 +11,7 @@ public class Commandworld extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
         final List<World> worlds = (List<World>)server.getWorlds();
         World world3;
         if (args.length < 1) {

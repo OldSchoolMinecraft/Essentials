@@ -14,7 +14,7 @@ public class Commandinfo extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
         final String pageStr = (args.length > 0) ? args[0].trim() : null;
         final List<String> lines = new ArrayList<String>();
         final List<String> chapters = new ArrayList<String>();

@@ -12,7 +12,7 @@ public class Commandpowertool extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
         final ItemStack itemStack = user.getItemInHand();
         if (itemStack == null || itemStack.getType() == Material.AIR) {
             throw new Exception(Util.i18n("powerToolAir"));

@@ -10,7 +10,7 @@ public class Commandignore extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
         if (args.length < 1) {
             throw new NotEnoughArgumentsException();
         }

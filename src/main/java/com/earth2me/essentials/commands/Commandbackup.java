@@ -11,7 +11,7 @@ public class Commandbackup extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
         final Backup backup = this.ess.getBackup();
         if (backup == null) {
             throw new Exception();

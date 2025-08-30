@@ -12,7 +12,7 @@ public class Commandbalancetop extends EssentialsCommand
     }
     
     @Override
-    protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
+    public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
         int max = 10;
         if (args.length > 0) {
             try {
