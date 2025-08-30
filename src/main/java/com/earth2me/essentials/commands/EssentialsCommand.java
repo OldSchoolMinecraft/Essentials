@@ -12,10 +12,10 @@ import org.bukkit.command.*;
 public abstract class EssentialsCommand implements IEssentialsCommand
 {
     private final transient String name;
-    protected transient IEssentials ess;
-    protected static final Logger logger;
+    public transient IEssentials ess;
+    public static final Logger logger;
     
-    protected EssentialsCommand(final String name) {
+    public EssentialsCommand(final String name) {
         this.name = name;
     }
     
@@ -29,11 +29,11 @@ public abstract class EssentialsCommand implements IEssentialsCommand
         return this.name;
     }
     
-    protected User getPlayer(final Server server, final String[] args, final int pos) throws NoSuchFieldException, NotEnoughArgumentsException {
+    public User getPlayer(final Server server, final String[] args, final int pos) throws NoSuchFieldException, NotEnoughArgumentsException {
         return this.getPlayer(server, args, pos, false);
     }
-    
-    protected User getPlayer(final Server server, final String[] args, final int pos, final boolean getOffline) throws NoSuchFieldException, NotEnoughArgumentsException {
+
+    public User getPlayer(final Server server, final String[] args, final int pos, final boolean getOffline) throws NoSuchFieldException, NotEnoughArgumentsException {
         if (args.length <= pos) {
             throw new NotEnoughArgumentsException();
         }
@@ -67,8 +67,8 @@ public abstract class EssentialsCommand implements IEssentialsCommand
         this.run(server, user, commandLabel, args);
         charge.charge(user);
     }
-    
-    protected void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
+
+    public void run(final Server server, final User user, final String commandLabel, final String[] args) throws Exception {
         this.run(server, (CommandSender)user.getBase(), commandLabel, args);
     }
     
@@ -76,8 +76,8 @@ public abstract class EssentialsCommand implements IEssentialsCommand
     public final void run(final Server server, final CommandSender sender, final String commandLabel, final Command cmd, final String[] args) throws Exception {
         this.run(server, sender, commandLabel, args);
     }
-    
-    protected void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
+
+    public void run(final Server server, final CommandSender sender, final String commandLabel, final String[] args) throws Exception {
         throw new Exception(Util.format("onlyPlayers", commandLabel));
     }
     
