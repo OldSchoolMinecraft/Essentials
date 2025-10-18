@@ -70,13 +70,14 @@ public class Commandnick extends EssentialsCommand
             target.setDisplayName(target.getName());
             target.setNickname(null);
             target.sendMessage(Util.i18n("nickNoMore"));
+			sender.sendMessage(Util.i18n("nickChangedGeneric"));
         }
         else {
             target.setDisplayName(this.ess.getSettings().getNicknamePrefix() + nick);
             target.setNickname(nick);
             String previewNick = nick.replace('&', '§');
             target.sendMessage(Util.format("nickSet", previewNick + "§7."));
+			sender.sendMessage(Util.format("nickChangedSuccessful", previewNick));
         }
-        sender.sendMessage(Util.i18n("nickChanged"));
     }
 }
