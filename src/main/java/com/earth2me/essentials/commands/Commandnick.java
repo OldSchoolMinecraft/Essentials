@@ -47,7 +47,8 @@ public class Commandnick extends EssentialsCommand
             }
             user.setDisplayName(this.ess.getSettings().getNicknamePrefix() + nick);
             user.setNickname(nick);
-            user.sendMessage(Util.format("nickSet", user.getDisplayName() + "§7."));
+			String previewNick = nick.replace('&', '§');
+            user.sendMessage(Util.format("nickSet", previewNick + "§7."));
         }
     }
     
@@ -69,12 +70,14 @@ public class Commandnick extends EssentialsCommand
             target.setDisplayName(target.getName());
             target.setNickname(null);
             target.sendMessage(Util.i18n("nickNoMore"));
+			sender.sendMessage(Util.i18n("nickChangedGeneric"));
         }
         else {
             target.setDisplayName(this.ess.getSettings().getNicknamePrefix() + nick);
             target.setNickname(nick);
-            target.sendMessage(Util.format("nickSet", target.getDisplayName() + "§7."));
+            String previewNick = nick.replace('&', '§');
+            target.sendMessage(Util.format("nickSet", previewNick + "§7."));
+			sender.sendMessage(Util.format("nickChangedSuccessful", previewNick));
         }
-        sender.sendMessage(Util.i18n("nickChanged"));
     }
 }
