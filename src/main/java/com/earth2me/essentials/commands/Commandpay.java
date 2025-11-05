@@ -24,6 +24,7 @@ public class Commandpay extends EssentialsCommand
             }
             user.payUser(u, amount);
             foundUser = true;
+            break;
         }
         if (!foundUser) {
             throw new NoSuchFieldException(Util.i18n("playerNotFound"));
