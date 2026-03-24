@@ -46,7 +46,7 @@ public final class Economy
     }
     
     private static User getUserByName(final String name) {
-        final Player player = Economy.ess.getServer().getPlayer(name);
+        final Player player = Economy.ess.getServer().getPlayerExact(name);
         User user;
         if (player != null) {
             user = Economy.ess.getUser(player);
