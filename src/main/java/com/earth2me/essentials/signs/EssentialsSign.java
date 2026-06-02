@@ -27,22 +27,19 @@ public class EssentialsSign
     public final boolean onSignCreate(final SignChangeEvent event, final IEssentials ess) {
         final ISign sign = new EventSign(event);
         final User user = ess.getUser(event.getPlayer());
-        if (!user.isAuthorized("essentials.signs." + this.signName.toLowerCase() + ".create") && !user.isAuthorized("essentials.signs.create." + this.signName.toLowerCase())) {
+        // added user != null condition so that if we pass null in a custom SignChangeEvent,
+        // we this will just skip the permission check entirely and assume it's allowed
+        if (user != null && !user.isAuthorized("essentials.signs." + this.signName.toLowerCase() + ".create") && !user.isAuthorized("essentials.signs.create." + this.signName.toLowerCase())) {
             return true;
         }
         sign.setLine(0, String.format("§4[%s]", this.signName));
         try {
-            final boolean ret = this.onSignCreate(sign, user, this.getUsername(user), ess);
-            if (ret) {
-                sign.setLine(0, this.getSuccessName());
-            }
+            final boolean ret = this.onSignCreate(sign, user, user == null ? "N/A" : this.getUsername(user), ess);
+            if (ret) sign.setLine(0, this.getSuccessName());
             return ret;
         }
-        catch (ChargeException ex) {
-            ess.showError((CommandSender)user, ex, this.signName);
-        }
-        catch (SignException ex2) {
-            ess.showError((CommandSender)user, ex2, this.signName);
+        catch (ChargeException | SignException ex) {
+            ess.showError(user, ex, this.signName);
         }
         return true;
     }
@@ -207,12 +204,20 @@ public class EssentialsSign
     
     protected final void validateTrade(final ISign sign, final int amountIndex, final int itemIndex, final User player, final IEssentials ess) throws SignException {
         final Trade trade = this.getTrade(sign, amountIndex, itemIndex, player, ess);
+
+        // if player is null, we assume it's a plugin sign update and validation falls upon the author
+        if (trade == null) return;
+
         final ItemStack item = trade.getItemStack();
         sign.setLine(amountIndex, Integer.toString(item.getAmount()));
         sign.setLine(itemIndex, sign.getLine(itemIndex).trim());
     }
     
     protected final Trade getTrade(final ISign sign, final int amountIndex, final int itemIndex, final User player, final IEssentials ess) throws SignException {
+        // if player is null, we assume it's a plugin sign update and validation falls upon the author
+        if (player == null)
+            return null;
+
         final ItemStack item = this.getItemStack(sign.getLine(itemIndex), 1, ess);
         final int amount = Math.min(this.getIntegerPositive(sign.getLine(amountIndex)), item.getType().getMaxStackSize() * player.getInventory().getSize());
         if (item.getTypeId() == 0 || amount < 1) {
