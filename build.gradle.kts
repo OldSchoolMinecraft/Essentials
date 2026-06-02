@@ -14,4 +14,5 @@ dependencies {
     implementation(files("libs/PermissionsEx.jar"))
     implementation(files("libs/BOSEconomy.jar"))
     implementation(files("libs/iConomy.jar"))
+    implementation(files("libs/Landmarks.jar"))
 }

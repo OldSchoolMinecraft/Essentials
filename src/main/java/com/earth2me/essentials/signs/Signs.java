@@ -14,7 +14,10 @@ public enum Signs
     TIME((EssentialsSign)new SignTime()), 
     TRADE((EssentialsSign)new SignTrade()), 
     WARP((EssentialsSign)new SignWarp()), 
-    WEATHER((EssentialsSign)new SignWeather());
+    WEATHER((EssentialsSign)new SignWeather()),
+
+    // custom signs
+    LANDMARK(new SignLandmark());
     
     private final EssentialsSign sign;
     
