@@ -58,7 +58,7 @@ public class SignBlockListener extends BlockListener
             return;
         }
         final User user = this.ess.getUser(event.getPlayer());
-        if (user.isAuthorized("essentials.signs.color")) {
+        if (user != null && user.isAuthorized("essentials.signs.color")) {
             for (int i = 0; i < 4; ++i) {
                 event.setLine(i, event.getLine(i).replaceAll("&([0-9a-f])", "§$1"));
             }

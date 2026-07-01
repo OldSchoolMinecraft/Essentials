@@ -1,5 +1,7 @@
 package com.earth2me.essentials.commands;
 
+import com.earth2me.essentials.event.EcoDeflateEvent;
+import com.earth2me.essentials.event.EcoInflateEvent;
 import org.bukkit.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
@@ -48,10 +50,16 @@ public class Commandeco extends EssentialsCommand
             switch (cmd) {
                 case GIVE: {
                     u2.giveMoney(amount, sender);
+                    //MODMAN: money enter economy event
+                    EcoInflateEvent inflateEvent = new EcoInflateEvent(u2.getName(), amount);
+                    Bukkit.getServer().getPluginManager().callEvent(inflateEvent);
                     break;
                 }
                 case TAKE: {
                     u2.takeMoney(amount, sender);
+                    //MODMAN: money leave economy event
+                    EcoDeflateEvent deflateEvent = new EcoDeflateEvent(u2.getName(), amount);
+                    Bukkit.getServer().getPluginManager().callEvent(deflateEvent);
                     break;
                 }
                 case RESET: {

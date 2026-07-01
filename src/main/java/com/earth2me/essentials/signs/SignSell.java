@@ -1,6 +1,9 @@
 package com.earth2me.essentials.signs;
 
 import com.earth2me.essentials.*;
+import com.earth2me.essentials.event.EcoDeflateEvent;
+import com.earth2me.essentials.event.EcoInflateEvent;
+import org.bukkit.Bukkit;
 
 public class SignSell extends EssentialsSign
 {
@@ -22,6 +25,9 @@ public class SignSell extends EssentialsSign
         charge.isAffordableFor(player);
         money.pay(player);
         charge.charge(player);
+        //MODMAN: money enter economy event
+        EcoInflateEvent inflateEvent = new EcoInflateEvent(player.getName(), charge.getMoney());
+        Bukkit.getServer().getPluginManager().callEvent(inflateEvent);
         Trade.log("Sign", "Sell", "Interact", username, charge, username, money, sign.getBlock().getLocation(), ess);
         return true;
     }
